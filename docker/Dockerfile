@@ -12,6 +12,7 @@ RUN apt-get -y upgrade
 
 # Install R and other needed packages
 RUN apt-get -y install r-base
+RUN R -e "install.packages('batch', lib='/usr/lib/R/library', dependencies = TRUE, repos='http://mirrors.ebi.ac.uk/CRAN')"
 
 # Clone tool
 RUN apt-get -y install git
