@@ -1,7 +1,11 @@
 <tool id="Univariate" name="Univariate" version="2.1.1">
   <description>Univariate statistics</description>
 
-  <command interpreter="Rscript">
+	<requirements>
+		<requirement type="package" version="3.2.2">R</requirement>
+	</requirements>
+
+  <command><![CDATA[
 	univariate_wrapper.R
       dataMatrix_in "$dataMatrix_in"
       sampleMetadata_in "$sampleMetadata_in"
@@ -14,7 +18,7 @@
 
       variableMetadata_out "$variableMetadata_out"
 	  information "$information"
-  </command>
+  ]]></command>
 
   <inputs>
 	<param name="dataMatrix_in" label="Data matrix file" type="data" format="tabular" help="variable x sample, decimal: '.', missing: NA, mode: numerical, sep: tabular" />
@@ -46,6 +50,19 @@
     <data name="variableMetadata_out" label="${tool.name}_${variableMetadata_in.name}" format="tabular" ></data>
 	<data name="information" label="${tool.name}_information.txt" format="txt"/>
   </outputs>
+
+  <tests>
+	  <test>
+		  <param name="dataMatrix_in" value="dataMatrix.tsv"/>
+		  <param name="sampleMetadata_in" value="sampleMetadata.tsv"/>
+		  <param name="variableMetadata_in" value="variableMetadata.tsv"/>
+		  <param name="facC" value="ageGroup"/>
+		  <param name="tesC" value="kruskal"/>
+		  <param name="adjC" value="fdr"/>
+		  <param name="thrN" value="0.05"/>
+		  <output name="variableMetadata_out" file="variableMetadata-output.tsv"/>
+	  </test>
+  </tests>
 
   <help>
 
@@ -288,5 +305,7 @@ CHANGES IN VERSION 2.0.1
 
 
   </help>
+
+  <citations/>
 
 </tool>
