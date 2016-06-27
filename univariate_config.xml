@@ -4,7 +4,7 @@
 	<requirements>
 		<requirement type="package" version="3.2.2">R</requirement>
 		<requirement type="package">r-batch</requirement>
-		<!-- TODO Add dependencies R libs: batch, PMCMR -->
+		<requirement type="package">r-pmcmr</requirement>
 	</requirements>
 
   <command><![CDATA[
