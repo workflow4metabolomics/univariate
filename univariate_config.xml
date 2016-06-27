@@ -3,10 +3,12 @@
 
 	<requirements>
 		<requirement type="package" version="3.2.2">R</requirement>
+		<requirement type="package">r-batch</requirement>
+		<!-- TODO Add dependencies R libs: batch, PMCMR -->
 	</requirements>
 
   <command><![CDATA[
-	univariate_wrapper.R
+	  $__tool_directory__/univariate_wrapper.R
       dataMatrix_in "$dataMatrix_in"
       sampleMetadata_in "$sampleMetadata_in"
       variableMetadata_in "$variableMetadata_in"
