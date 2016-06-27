@@ -1,7 +1,10 @@
-## Univariate parametric and non-parametric hypothesis testing with correction for multiple testing
-#### A Galaxy module from the [Workflow4metabolomics](http://workflow4metabolomics.org) project
+# Univariate parametric and non-parametric hypothesis testing with correction for multiple testing
 
-### Description
+A Galaxy module from the [Workflow4metabolomics](http://workflow4metabolomics.org) project.
+
+Status: [![Build Status](https://travis-ci.org/workflow4metabolomics/univariate.svg?branch=master)](https://travis-ci.org/workflow4metabolomics/univariate).
+
+## Description
 
 **Version:** 2.1.1   
 **Date:** 2015-09-30  
@@ -12,27 +15,23 @@
 **Licence:** CeCILL  
 **Funding:** Agence Nationale de la Recherche ([MetaboHUB](http://www.metabohub.fr/index.php?lang=en&Itemid=473) national infrastructure for metabolomics and fluxomics, ANR-11-INBS-0010 grant)
 
-### Installation
+## Installation
 
-* Configuration file: **univariate_config.xml**  
-* Image file: 
-    + **static/images/univariate_workflowPositionImage.png**   
-* Wrapper file: **univariate_wrapper.R**  
-* Script file: **univariate_script.R**  
-* R packages  
-    + **batch** from CRAN  
-> install.packages("batch", dep=TRUE)  
-    + **PMCMR** from Bioconductor  
-> install.packages("PMCMR", dep=TRUE)      
+ * Configuration file: **univariate_config.xml**  
+ * Image file: 
+  + **static/images/univariate_workflowPositionImage.png**   
+ * Wrapper file: **univariate_wrapper.R**  
+ * Script file: **univariate_script.R**  
+ * R packages  
+  + **batch** from CRAN: `install.packages("batch", dep=TRUE)`.
+  + **PMCMR** from Bioconductor: `install.packages("PMCMR", dep=TRUE)`.
 
-### Tests
+## Tests
 
 The code in the wrapper can be tested by running the **tests/univariate_tests.R** in R  
 
-### News
+## News
 
-##### CHANGES IN VERSION 2.1.1  
+## CHANGES IN VERSION 2.1.1  
 
-    o Internal handling of 'NA' p-values (e.g. when intensities are identical in all samples)  
-    
-***
+ * Internal handling of 'NA' p-values (e.g. when intensities are identical in all samples).
