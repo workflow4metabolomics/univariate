@@ -4,7 +4,6 @@ before_install:
  - virtualenv planemo-venv
  - . planemo-venv/bin/activate
  - pip install planemo
- - planemo conda_init
 
 script:
  - ant test
