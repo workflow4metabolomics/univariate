@@ -18,6 +18,9 @@ RUN R -e "install.packages('batch', lib='/usr/lib/R/library', dependencies = TRU
 RUN apt-get -y install git
 RUN git clone -b docker https://github.com/workflow4metabolomics/univariate /files/univariate
 
+# Put univariate folder into PATH
+ENV PATH=$PATH:/files/univariate
+
 # Clean up
 RUN apt-get clean && apt-get autoremove -y && rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
 
