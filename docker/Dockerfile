@@ -6,7 +6,7 @@ MAINTAINER Etienne Thevenot (etienne.thevenot@cea.fr)
 RUN apt-get update && apt-get -y install git
 
 # Install R packages needed
-RUN R -e "install.packages('batch', dependencies = TRUE)"
+RUN R -e "install.packages(c('batch','PMCMR'), dependencies = TRUE)"
 
 # Clone tool
 RUN git clone -b docker https://github.com/phnmnl/univariate /files/univariate
