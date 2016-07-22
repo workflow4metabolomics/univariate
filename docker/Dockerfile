@@ -21,5 +21,9 @@ RUN git clone -b docker https://github.com/workflow4metabolomics/univariate /fil
 # Clean up
 RUN apt-get clean && apt-get autoremove -y && rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
 
+# Make wrapper executable
+RUN cp /files/univariate/univariate_wrapper.R /usr/local/bin/
+RUN chmod a+x /usr/local/bin/univariate_wrapper.R
+
 # Define Entry point script
 ENTRYPOINT ["/files/univariate/univariate_wrapper.R"]
