@@ -2,10 +2,6 @@ FROM r-base:3.3.1
 
 MAINTAINER Etienne Thevenot (etienne.thevenot@cea.fr)
 
-# Setup package repos
-RUN echo "deb http://mirrors.ebi.ac.uk/CRAN/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
-
 # Update system
 RUN apt-get update && apt-get -y install git
 
