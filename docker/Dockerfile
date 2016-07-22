@@ -6,16 +6,13 @@ MAINTAINER Etienne Thevenot (etienne.thevenot@cea.fr)
 RUN echo "deb http://mirrors.ebi.ac.uk/CRAN/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 
-# Update and upgrade system
-RUN apt-get update
-RUN apt-get -y upgrade
+# Update system
+RUN apt-get update && apt-get -y install git
 
-# Install R and other needed packages
-RUN apt-get -y install r-base
-RUN R -e "install.packages('batch', lib='/usr/lib/R/library', dependencies = TRUE, repos='http://mirrors.ebi.ac.uk/CRAN')"
+# Install R packages needed
+RUN R -e "install.packages('batch', dependencies = TRUE)"
 
 # Clone tool
-RUN apt-get -y install git
 RUN git clone -b docker https://github.com/workflow4metabolomics/univariate /files/univariate
 
 # Clean up
