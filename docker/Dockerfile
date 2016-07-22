@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM r-base:3.3.1
 
 MAINTAINER Etienne Thevenot (etienne.thevenot@cea.fr)
 
