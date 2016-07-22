@@ -13,7 +13,7 @@ RUN apt-get update && apt-get -y install git
 RUN R -e "install.packages('batch', dependencies = TRUE)"
 
 # Clone tool
-RUN git clone -b docker https://github.com/workflow4metabolomics/univariate /files/univariate
+RUN git clone -b docker https://github.com/phnmnl/univariate /files/univariate
 
 # Clean up
 RUN apt-get clean && apt-get autoremove -y && rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
