@@ -1,71 +1,71 @@
 <tool id="Univariate" name="Univariate" version="2.1.2">
   <description>Univariate statistics</description>
-
-	<requirements>
-		<requirement type="package" version="3.2.2">R</requirement>
-		<requirement type="package">r-batch</requirement>
-		<requirement type="package">r-pmcmr</requirement>
-	</requirements>
-
+  
+  <requirements>
+    <requirement type="package" version="3.2.2">R</requirement>
+    <requirement type="package">r-batch</requirement>
+    <requirement type="package">r-pmcmr</requirement>
+  </requirements>
+  
   <command><![CDATA[
-	  $__tool_directory__/univariate_wrapper.R
-      dataMatrix_in "$dataMatrix_in"
-      sampleMetadata_in "$sampleMetadata_in"
-      variableMetadata_in "$variableMetadata_in"
-
-	  facC "$facC"
-	  tesC "$tesC"
-	  adjC "$adjC"
-	  thrN "$thrN"	  
-
-      variableMetadata_out "$variableMetadata_out"
-	  information "$information"
+  $__tool_directory__/univariate_wrapper.R
+  dataMatrix_in "$dataMatrix_in"
+  sampleMetadata_in "$sampleMetadata_in"
+  variableMetadata_in "$variableMetadata_in"
+  
+  facC "$facC"
+  tesC "$tesC"
+  adjC "$adjC"
+  thrN "$thrN"	  
+  
+  variableMetadata_out "$variableMetadata_out"
+  information "$information"
   ]]></command>
-
+  
   <inputs>
-	<param name="dataMatrix_in" label="Data matrix file" type="data" format="tabular" help="variable x sample, decimal: '.', missing: NA, mode: numerical, sep: tabular" />
-	<param name="sampleMetadata_in" label="Sample metadata file" type="data" format="tabular" help="sample x metadata, decimal: '.', missing: NA, mode: character and numerical, sep: tabular" />
-	<param name="variableMetadata_in" label="Variable metadata file" type="data" format="tabular" help="variable x metadata, decimal: '.', missing: NA, mode: character and numerical, sep: tabular"  />
+    <param name="dataMatrix_in" label="Data matrix file" type="data" format="tabular" help="variable x sample, decimal: '.', missing: NA, mode: numerical, sep: tabular" />
+    <param name="sampleMetadata_in" label="Sample metadata file" type="data" format="tabular" help="sample x metadata, decimal: '.', missing: NA, mode: character and numerical, sep: tabular" />
+    <param name="variableMetadata_in" label="Variable metadata file" type="data" format="tabular" help="variable x metadata, decimal: '.', missing: NA, mode: character and numerical, sep: tabular"  />
     <param name="facC" label="Factor of interest" type="text" help="Name of the column of the sample metadata table corresponding to the qualitative or quantitative variable"/>
     <param name="tesC" label="Test" type="select" help="">
-		<option value="ttest">ttest (qualitative, 2 levels)</option>
-        <option value="wilcoxon">Wilcoxon test (qualitative, 2 levels)</option>      
-		<option value="anova">Analysis of variance (qualitative, more than 2 levels)</option>
-		<option value="kruskal">Kruskal-Wallis rank test (qualitative, more than 2 levels)</option>
-		<option value="pearson">Pearson correlation test (quantitative)</option>
-		<option value="spearman">Spearman correlation rank test (quantitative)</option>
+      <option value="ttest">ttest (qualitative, 2 levels)</option>
+      <option value="wilcoxon">Wilcoxon test (qualitative, 2 levels)</option>      
+      <option value="anova">Analysis of variance (qualitative, more than 2 levels)</option>
+      <option value="kruskal">Kruskal-Wallis rank test (qualitative, more than 2 levels)</option>
+      <option value="pearson">Pearson correlation test (quantitative)</option>
+      <option value="spearman">Spearman correlation rank test (quantitative)</option>
     </param>
     <param name="adjC" label="Method for multiple testing correction" type="select" help="">
-	    <option value="fdr">fdr</option>
-		<option value="BH">BH</option>
-		<option value="bonferroni">bonferroni</option>
-		<option value="BY">BY</option>
-		<option value="hochberg">hochberg</option>
-        <option value="holm">holm</option>
-		<option value="hommel">hommel</option>
-		<option value="none">none</option>
+      <option value="fdr">fdr</option>
+      <option value="BH">BH</option>
+      <option value="bonferroni">bonferroni</option>
+      <option value="BY">BY</option>
+      <option value="hochberg">hochberg</option>
+      <option value="holm">holm</option>
+      <option value="hommel">hommel</option>
+      <option value="none">none</option>
     </param>
     <param name="thrN" type="float" value="0.05" label="(Corrected) p-value significance threshold" help="Must be between 0 and 1"/>
-   </inputs>
-
+  </inputs>
+  
   <outputs>
     <data name="variableMetadata_out" label="${tool.name}_${variableMetadata_in.name}" format="tabular" ></data>
-	<data name="information" label="${tool.name}_information.txt" format="txt"/>
+    <data name="information" label="${tool.name}_information.txt" format="txt"/>
   </outputs>
-
+  
   <tests>
-	  <test>
-		  <param name="dataMatrix_in" value="dataMatrix.tsv"/>
-		  <param name="sampleMetadata_in" value="sampleMetadata.tsv"/>
-		  <param name="variableMetadata_in" value="variableMetadata.tsv"/>
-		  <param name="facC" value="ageGroup"/>
-		  <param name="tesC" value="kruskal"/>
-		  <param name="adjC" value="fdr"/>
-		  <param name="thrN" value="0.05"/>
-		  <output name="variableMetadata_out" file="variableMetadata-output.tsv"/>
-	  </test>
+    <test>
+      <param name="dataMatrix_in" value="dataMatrix.tsv"/>
+      <param name="sampleMetadata_in" value="sampleMetadata.tsv"/>
+      <param name="variableMetadata_in" value="variableMetadata.tsv"/>
+      <param name="facC" value="ageGroup"/>
+      <param name="tesC" value="kruskal"/>
+      <param name="adjC" value="fdr"/>
+      <param name="thrN" value="0.05"/>
+      <output name="variableMetadata_out" file="variableMetadata-output.tsv"/>
+    </test>
   </tests>
-
+  
   <help>
 
 .. class:: infomark
@@ -311,7 +311,7 @@ CHANGES IN VERSION 2.0.1
 (corrected) p-value threshold can be set to any value between 0 and 1
 
 
-  </help>
+</help>
 
   <citations/>
 
