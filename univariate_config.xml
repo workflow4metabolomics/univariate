@@ -1,4 +1,4 @@
-<tool id="Univariate" name="Univariate" version="2.1.1">
+<tool id="Univariate" name="Univariate" version="2.1.2">
   <description>Univariate statistics</description>
 
 	<requirements>
@@ -294,6 +294,11 @@ Output files
 ----
 NEWS
 ----
+
+CHANGES IN VERSION 2.1.2
+========================
+
+Minor internal changes for toolshed export
 
 CHANGES IN VERSION 2.1.1
 ========================

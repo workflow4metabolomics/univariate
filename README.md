@@ -6,8 +6,8 @@ Status: [![Build Status](https://travis-ci.org/workflow4metabolomics/univariate.
 
 ## Description
 
-**Version:** 2.1.1   
-**Date:** 2015-09-30  
+**Version:** 2.1.2   
+**Date:** 2016-07-30  
 **Author:** Marie Tremblay-Franco (INRA, MetaToul, MetaboHUB, W4M Core Development Team) and Etienne A. Thevenot (CEA, LIST, MetaboHUB, W4M Core Development Team)    
 **Email:** [marie.tremblay-franco(at)toulouse.inra.fr](mailto:marie.tremblay-franco@toulouse.inra.fr); [etienne.thevenot(at)cea.fr](mailto:etienne.thevenot@cea.fr)  
 **Citation:** Thevenot E.A., Roux A., Xu Y., Ezan E. and Junot C. (2015). Analysis of the human adult urinary metabolome variations with age, body mass index and gender by implementing a comprehensive workflow for univariate and OPLS statistical analyses. *Journal of Proteome Research*, **14**:3322-3335. [doi:10.1021/acs.jproteome.5b00354](http://dx.doi.org/10.1021/acs.jproteome.5b00354)  
@@ -31,6 +31,10 @@ Status: [![Build Status](https://travis-ci.org/workflow4metabolomics/univariate.
 The code in the wrapper can be tested by running the **tests/univariate_tests.R** in R  
 
 ## News
+
+## CHANGES IN VERSION 2.1.2  
+
+ * Minor internal changes in .shed.yml for toolshed export
 
 ## CHANGES IN VERSION 2.1.1  
 
