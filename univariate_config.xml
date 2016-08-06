@@ -13,7 +13,7 @@
   
   <command><![CDATA[
   Rscript $__tool_directory__/univariate_wrapper.R
-  
+
   dataMatrix_in "$dataMatrix_in"
   sampleMetadata_in "$sampleMetadata_in"
   variableMetadata_in "$variableMetadata_in"
@@ -26,7 +26,6 @@
   variableMetadata_out "$variableMetadata_out"
   information "$information"
   ]]></command>
-  
   <inputs>
     <param name="dataMatrix_in" label="Data matrix file" type="data" format="tabular" help="variable x sample, decimal: '.', missing: NA, mode: numerical, sep: tabular" />
     <param name="sampleMetadata_in" label="Sample metadata file" type="data" format="tabular" help="sample x metadata, decimal: '.', missing: NA, mode: character and numerical, sep: tabular" />
