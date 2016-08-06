@@ -1,8 +1,0 @@
-
-Start of the 'Univariate' Galaxy module call: sam. 21 mai 2016 20:25:53
-
-Performing 'ttest'
-
-No significant variable found at the selected 0.05 level
-
-End of 'Univariate' Galaxy module call: 2016-05-21 20:25:53

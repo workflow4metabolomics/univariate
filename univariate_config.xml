@@ -1,4 +1,4 @@
-<tool id="Univariate" name="Univariate" version="2.1.2">
+<tool id="Univariate" name="Univariate" version="2.1.4">
   <description>Univariate statistics</description>
   
   <requirements>
@@ -6,9 +6,14 @@
     <requirement type="package">r-batch</requirement>
     <requirement type="package">r-pmcmr</requirement>
   </requirements>
+
+  <stdio>
+    <exit_code range="1:" level="fatal" />
+  </stdio>
   
   <command><![CDATA[
-  $__tool_directory__/univariate_wrapper.R
+  Rscript $__tool_directory__/univariate_wrapper.R
+  
   dataMatrix_in "$dataMatrix_in"
   sampleMetadata_in "$sampleMetadata_in"
   variableMetadata_in "$variableMetadata_in"
@@ -200,6 +205,78 @@ information.txt
 Working example
 ---------------
 
+.. class:: infomark
+
+See the **W4M00001a_sacurine-subset-statistics**, **W4M00001b_sacurine-subset-complete**, **W4M00002_mtbls2**, **W4M00003_diaplasma** shared histories in the **Shared Data/Published Histories** menu (https://galaxy.workflow4metabolomics.org/history/list_published)
+
+---------------------------------------------------
+
+----
+NEWS
+----
+
+CHANGES IN VERSION 2.1.4
+========================
+
+NEW FEATURE
+
+Level names are now separated by '.' instead of '-' previously in the column names of the output variableMetadata table (e.g., 'jour_ttest_J3.J10_fdr' instead of 'jour_ttest_J3-J10_fdr' previously)
+
+INTERNAL MODIFICATIONS
+
+Minor internal changes for toolshed export
+
+CHANGES IN VERSION 2.1.2
+========================
+
+INTERNAL MODIFICATIONS
+
+Minor internal changes for toolshed export
+
+CHANGES IN VERSION 2.1.1
+========================
+
+INTERNAL MODIFICATIONS
+
+Internal handling of 'NA' p-values (e.g. when intensities are identical in all samples)
+
+CHANGES IN VERSION 2.0.1
+========================
+
+NEW FEATURE
+
+(corrected) p-value threshold can be set to any value between 0 and 1
+
+
+</help>
+
+<citations>
+  <citation type="bibtex">@Manual{,
+  title = {R: A Language and Environment for Statistical Computing},
+  author = {{R Core Team}},
+  organization = {R Foundation for Statistical Computing},
+  address = {Vienna, Austria},
+  year = {2016},
+  url = {https://www.R-project.org/},
+  }</citation>
+  <citation type="bibtex">@Article{Thevenot2015,
+   Title                    = {Analysis of the human adult urinary metabolome variations with age, body mass index and gender by implementing a comprehensive workflow for univariate and OPLS statistical analyses},
+   Author                   = {Thevenot, Etienne A. and Roux, Aurelie and Xu, Ying and Ezan, Eric and Junot, Christophe},
+   Journal                  = {Journal of Proteome Research},
+   Year                     = {2015},
+   Note                     = {PMID: 26088811},
+   Number                   = {8},
+   Pages                    = {3322-3335},
+   Volume                   = {14},
+   
+   Doi                      = {10.1021/acs.jproteome.5b00354},
+   Url                      = {http://pubs.acs.org/doi/full/10.1021/acs.jproteome.5b00354}
+   }</citation>
+   <citation type="doi">10.1093/bioinformatics/btu813</citation>
+ </citations>
+
+
+
 Input files
 ===========
 
@@ -291,28 +368,5 @@ Output files
 
 ---------------------------------------------------
 
-----
-NEWS
-----
-
-CHANGES IN VERSION 2.1.2
-========================
-
-Minor internal changes for toolshed export
-
-CHANGES IN VERSION 2.1.1
-========================
-
-Internal handling of 'NA' p-values (e.g. when intensities are identical in all samples)
-
-CHANGES IN VERSION 2.0.1
-========================
-
-(corrected) p-value threshold can be set to any value between 0 and 1
-
-
-</help>
-
-  <citations/>
 
 </tool>

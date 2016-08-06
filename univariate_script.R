@@ -54,7 +54,7 @@ univariateF <- function(datMN,
         sigVn <- as.numeric(fdrVn < thrN)
 
         if(tesC %in% c("ttest", "wilcoxon"))
-            varPfxC <- paste0(varPfxC, paste(rev(facLevVc), collapse = "-"), "_")
+            varPfxC <- paste0(varPfxC, paste(rev(facLevVc), collapse = "."), "_")
 
         varDF[, paste0(varPfxC, ifelse(tesC %in% c("ttest", "wilcoxon"), "dif", "cor"))] <- staVn
 
@@ -66,6 +66,8 @@ univariateF <- function(datMN,
 
         ## getting the names of the pairwise comparisons 'class1Vclass2'
         prwVc <- rownames(TukeyHSD(aov(datMN[, 1] ~ facFcVn))[["facFcVn"]])
+
+        prwVc <- gsub("-", ".", prwVc, fixed = TRUE) ## 2016-08-05: '-' character in dataframe column names seems not to be converted to "." by write.table on ubuntu R-3.3.1
 
         aovMN <- t(apply(datMN, 2, function(varVn) {
 
@@ -97,9 +99,9 @@ univariateF <- function(datMN,
         nemVl <- c(lower.tri(nemMN, diag = TRUE))
         nemClaMC <- cbind(rownames(nemMN)[c(row(nemMN))][nemVl],
                           colnames(nemMN)[c(col(nemMN))][nemVl])
-        nemNamVc <- paste0(nemClaMC[, 1], "-", nemClaMC[, 2])
+        nemNamVc <- paste0(nemClaMC[, 1], ".", nemClaMC[, 2])
         nemNamVc <- paste0(varPfxC, nemNamVc)
-
+        
         nemMN <- t(apply(datMN, 2, function(varVn) {
 
             pvaN <- kruskal.test(varVn ~ facFcVn)[["p.value"]]

@@ -12,10 +12,6 @@ source_local("univariate_script.R")
 
 argVc <- unlist(parseCommandArgs(evaluate=FALSE))
 
-
-#### Start_of_tested_code  <- function() {}
-
-
 ##------------------------------
 ## Initializing
 ##------------------------------
@@ -136,6 +132,7 @@ varDF <- univariateF(datMN = datMN,
 
 varDF <- cbind.data.frame(variableMetadata = rownames(varDF),
                           varDF)
+
 write.table(varDF,
             file = argVc["variableMetadata_out"],
             quote = FALSE,
@@ -151,9 +148,5 @@ cat("\nEnd of '", modNamC, "' Galaxy module call: ",
 sink()
 
 options(stringsAsFactors = strAsFacL)
-
-
-#### End_of_tested_code <- function() {}
-
 
 rm(list = ls())
