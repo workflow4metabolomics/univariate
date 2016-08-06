@@ -66,7 +66,7 @@
       <param name="tesC" value="kruskal"/>
       <param name="adjC" value="fdr"/>
       <param name="thrN" value="0.05"/>
-      <output name="variableMetadata_out" file="variableMetadata-output.tsv"/>
+      <output name="variableMetadata_out" file="output-variableMetadata.tsv"/>
     </test>
   </tests>
   
