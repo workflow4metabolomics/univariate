@@ -29,12 +29,11 @@ Status: [![Build Status](https://travis-ci.org/workflow4metabolomics/univariate.
     ```r
     install.packages("batch", dep=TRUE)  
     ```
-  + **PMCMR** from Bioconductor  
+  + **PMCMR** from CRAN  
   
-    ```r
-    source("http://www.bioconductor.org/biocLite.R")  
-    biocLite("PMCMR")
-    ```   
+    ```r  
+    install.packages("PMCMR", dep=TRUE)  
+    ```    
  
 ### Tests
 
