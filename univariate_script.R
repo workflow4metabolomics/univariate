@@ -9,11 +9,12 @@ univariateF <- function(datMN,
 
 
     ## Option
-    ##-------
 
     strAsFacL <- options()$stringsAsFactors
     options(stingsAsFactors = FALSE)
     options(warn = -1)
+
+    ## Getting the response (either a factor or a numeric)
 
     if(mode(samDF[, facC]) == "character") {
         facFcVn <- factor(samDF[, facC])
@@ -169,6 +170,9 @@ univariateF <- function(datMN,
             if(sum(aovSigMN[varI, ]) > 0) {
                 
                 varC <- rownames(varDF)[varI]
+
+                boxplot(datMN[, varI] ~ facFcVn,
+                        main = paste0(varC, " (", adjC, " = ", signif(adjVn[varI], 2), ")"))
                 
                 for(prwI in 1:length(prwVc)) {
                     
@@ -258,6 +262,9 @@ univariateF <- function(datMN,
             if(sum(nemSigMN[varI, ]) > 0) {
                 
                 varC <- rownames(varDF)[varI]
+
+                boxplot(datMN[, varI] ~ facFcVn,
+                        main = paste0(varC, " (", adjC, " = ", signif(adjVn[varI], 2), ")"))
                 
                 for(nemI in 1:length(nemNamVc)) {
                     

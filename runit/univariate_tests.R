@@ -1,7 +1,24 @@
+test_input_anova <- function() {
+
+    testDirC <- "input"
+    argLs <- list(facC = "qual",
+                  tesC = "anova",
+                  adjC = "fdr",
+                  thrN = "0.05")
+
+    argLs <- c(defaultArgF(testDirC), argLs)
+    outLs <- wrapperCallF(argLs)
+
+    checkEqualsNumeric(outLs[["varDF"]]["v6", "qual_anova_fdr"], 1.924156e-03, tolerance = 1e-6)
+
+    checkEqualsNumeric(outLs[["varDF"]]["v4", "qual_anova_D.C_fdr"], 0.01102016, tolerance = 1e-6)
+
+}
+
 test_input_kruskal <- function() {
 
     testDirC <- "input"
-    argLs <- list(facC = "ageGroup",
+    argLs <- list(facC = "qual",
                   tesC = "kruskal",
                   adjC = "fdr",
                   thrN = "0.05")
@@ -9,7 +26,9 @@ test_input_kruskal <- function() {
     argLs <- c(defaultArgF(testDirC), argLs)
     outLs <- wrapperCallF(argLs)
 
-    checkEqualsNumeric(outLs[["varDF"]]["HMDB01032", "ageGroup_kruskal_senior.experienced_fdr"], 0.3693738, tolerance = 1e-6)
+    checkEqualsNumeric(outLs[["varDF"]]["v4", "qual_kruskal_fdr"], 0.0008194662, tolerance = 1e-7)
+
+    checkEqualsNumeric(outLs[["varDF"]]["v6", "qual_kruskal_D.A_fdr"], 0.002945952, tolerance = 1e-7)
 
 }
 

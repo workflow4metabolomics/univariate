@@ -64,7 +64,7 @@
       <param name="dataMatrix_in" value="dataMatrix.tsv"/>
       <param name="sampleMetadata_in" value="sampleMetadata.tsv"/>
       <param name="variableMetadata_in" value="variableMetadata.tsv"/>
-      <param name="facC" value="ageGroup"/>
+      <param name="facC" value="qual"/>
       <param name="tesC" value="kruskal"/>
       <param name="adjC" value="fdr"/>
       <param name="thrN" value="0.05"/>
