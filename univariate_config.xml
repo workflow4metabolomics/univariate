@@ -1,6 +1,6 @@
 <tool id="Univariate" name="Univariate" version="2.2.0">
   <description>Univariate statistics</description>
-  
+
   <requirements>
     <requirement type="package" version="3.3.1">R</requirement>
     <requirement type="package">r-batch</requirement>
@@ -10,7 +10,7 @@
   <stdio>
     <exit_code range="1:" level="fatal" />
   </stdio>
-  
+
   <command><![CDATA[
   Rscript $__tool_directory__/univariate_wrapper.R
 
@@ -27,6 +27,7 @@
   figure "$figure"
   information "$information"
   ]]></command>
+
   <inputs>
     <param name="dataMatrix_in" label="Data matrix file" type="data" format="tabular" help="variable x sample, decimal: '.', missing: NA, mode: numerical, sep: tabular" />
     <param name="sampleMetadata_in" label="Sample metadata file" type="data" format="tabular" help="sample x metadata, decimal: '.', missing: NA, mode: character and numerical, sep: tabular" />
@@ -52,13 +53,13 @@
     </param>
     <param name="thrN" type="float" value="0.05" label="(Corrected) p-value significance threshold" help="Must be between 0 and 1"/>
   </inputs>
-  
+
   <outputs>
-    <data name="variableMetadata_out" label="${tool.name}_${variableMetadata_in.name}" format="tabular" ></data>
+    <data name="variableMetadata_out" label="${tool.name}_${variableMetadata_in.name}" format="tabular"></data>
     <data name="figure" label="${tool.name}_figure.pdf" format="pdf"/>
     <data name="information" label="${tool.name}_information.txt" format="txt"/>
   </outputs>
-  
+
   <tests>
     <test>
       <param name="dataMatrix_in" value="dataMatrix.tsv"/>
@@ -71,7 +72,7 @@
       <output name="variableMetadata_out" file="output-variableMetadata.tsv"/>
     </test>
   </tests>
-  
+
   <help>
 
 .. class:: infomark
@@ -269,32 +270,32 @@ NEW FEATURE
 (corrected) p-value threshold can be set to any value between 0 and 1
 
 
-</help>
+  </help>
 
-<citations>
-  <citation type="bibtex">@Manual{,
-  title = {R: A Language and Environment for Statistical Computing},
-  author = {{R Core Team}},
-  organization = {R Foundation for Statistical Computing},
-  address = {Vienna, Austria},
-  year = {2016},
-  url = {https://www.R-project.org/},
-  }</citation>
-  <citation type="bibtex">@Article{Thevenot2015,
-   Title                    = {Analysis of the human adult urinary metabolome variations with age, body mass index and gender by implementing a comprehensive workflow for univariate and OPLS statistical analyses},
-   Author                   = {Thevenot, Etienne A. and Roux, Aurelie and Xu, Ying and Ezan, Eric and Junot, Christophe},
-   Journal                  = {Journal of Proteome Research},
-   Year                     = {2015},
-   Note                     = {PMID: 26088811},
-   Number                   = {8},
-   Pages                    = {3322-3335},
-   Volume                   = {14},
-   
-   Doi                      = {10.1021/acs.jproteome.5b00354},
-   Url                      = {http://pubs.acs.org/doi/full/10.1021/acs.jproteome.5b00354}
-   }</citation>
-   <citation type="doi">10.1093/bioinformatics/btu813</citation>
- </citations>
+  <citations>
+    <citation type="bibtex">@Manual{,
+    title = {R: A Language and Environment for Statistical Computing},
+    author = {{R Core Team}},
+    organization = {R Foundation for Statistical Computing},
+    address = {Vienna, Austria},
+    year = {2016},
+    url = {https://www.R-project.org/},
+    }</citation>
+    <citation type="bibtex">@Article{Thevenot2015,
+    Title                    = {Analysis of the human adult urinary metabolome variations with age, body mass index and gender by implementing a comprehensive workflow for univariate and OPLS statistical analyses},
+    Author                   = {Thevenot, Etienne A. and Roux, Aurelie and Xu, Ying and Ezan, Eric and Junot, Christophe},
+    Journal                  = {Journal of Proteome Research},
+    Year                     = {2015},
+    Note                     = {PMID: 26088811},
+    Number                   = {8},
+    Pages                    = {3322-3335},
+    Volume                   = {14},
+    
+    Doi                      = {10.1021/acs.jproteome.5b00354},
+    Url                      = {http://pubs.acs.org/doi/full/10.1021/acs.jproteome.5b00354}
+    }</citation>
+    <citation type="doi">10.1093/bioinformatics/btu813</citation>
+  </citations>
 
 
 
