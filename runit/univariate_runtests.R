@@ -83,6 +83,7 @@ defaultArgF <- function(testInDirC) {
         defaultArgLs[["variableMetadata_in"]] <- file.path(dirname(scriptPathC), testInDirC, "variableMetadata.tsv")
 
     defaultArgLs[["variableMetadata_out"]] <- file.path(dirname(scriptPathC), testOutDirC, "variableMetadata.tsv")
+    defaultArgLs[["figure"]] <- file.path(dirname(scriptPathC), testOutDirC, "figure.pdf")
     defaultArgLs[["information"]] <- file.path(dirname(scriptPathC), testOutDirC, "information.txt")
 
     defaultArgLs

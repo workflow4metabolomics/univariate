@@ -1,8 +1,8 @@
-<tool id="Univariate" name="Univariate" version="2.1.4">
+<tool id="Univariate" name="Univariate" version="2.2.0">
   <description>Univariate statistics</description>
   
   <requirements>
-    <requirement type="package" version="3.2.2">R</requirement>
+    <requirement type="package">R</requirement>
     <requirement type="package">r-batch</requirement>
     <requirement type="package">r-PMCMR</requirement>
   </requirements>
@@ -24,6 +24,7 @@
   thrN "$thrN"	  
   
   variableMetadata_out "$variableMetadata_out"
+  figure "$figure"
   information "$information"
   ]]></command>
   <inputs>
@@ -54,6 +55,7 @@
   
   <outputs>
     <data name="variableMetadata_out" label="${tool.name}_${variableMetadata_in.name}" format="tabular" ></data>
+    <data name="figure" label="${tool.name}_figure.pdf" format="pdf"/>
     <data name="information" label="${tool.name}_information.txt" format="txt"/>
   </outputs>
   
@@ -188,12 +190,16 @@ Output files
 	
 variableMetadata_out.tabular
 	| **variableMetadata** file identical to the file given as argument, except that (at least) three columns have been added:
-	| 1) [factor]_[test]_[class'a']-[class'b']_dif or [factor]_[test]_cor: difference of the means (ttest) or the medians (wilcoxon) between the two classes, or 'pearson' or 'spearman' correlations
-	| 2) [factor]_[test]_[class'a']-[class'b']_[method] or [factor]_[test]_[method]: adjusted p-values
-	| 3) [factor]_[test]_[class'a']-[class'b']_sig or [factor]_[test]_sig: significance (coded as '1' if below the threshold and '0' otherwise)
-	| In the case of 'anova' and 'kruskal', the columns 2) and 3) appear first to give the results from the ANOVA or Kruskal Wallis test, and, when these tests are significant, the results of the pairwise comparisons are reported in additional columns (otherwise NA in these columns): in the case of ANOVA, the Tukey HSD post-hoc analysis is used (for each comparison, the difference between means, p value, and significance are provided); in the case of Kruskal Wallis, the Nemenyi is performed (PMCMR package) (for each pairwise comparison, the difference between medians, p value and significance are provided)
+	| 1) [factor]_[test]_[class'a'].[class'b']_dif or [factor]_[test]_cor: difference of the means (ttest) or the medians (wilcoxon) between the two classes, or 'pearson' or 'spearman' correlations
+	| 2) [factor]_[test]_[class'a'].[class'b']_[method] or [factor]_[test]_[method]: adjusted p-values
+	| 3) [factor]_[test]_[class'a'].[class'b']_sig or [factor]_[test]_sig: significance (coded as '1' if below the threshold and '0' otherwise)
+	| In the case of 'anova' and 'kruskal', the columns 2) and 3) appear first to give the results from the ANOVA or Kruskal Wallis test, and then the results of the pairwise comparisons are reported in additional columns (otherwise NA in these columns): in the case of ANOVA, the Tukey HSD post-hoc analysis is used (for each comparison, the difference between means, p value, and significance are provided); in the case of Kruskal Wallis, the Nemenyi is performed (PMCMR package) (for each pairwise comparison, the difference between medians, p value and significance are provided); note that since version 2.2.0, the p-values of the post-hoc pairwise comparisons (ANOVA or Kruskal) are further corrected for multiple testing over all variables (as the p-value of the omnibus test in column 2)
 	|
 	
+figure.pdf
+	| File containing the graphics of all significant tests: boxplots (respectively scatterplots with the regression line in red and the R2 value) are displayed when the factor of interest is qualitative (respectively quantitative). The variable name and the corrected p-value is indicated in the title of each plot
+	|
+
 information.txt
 	| File with all messages and warnings generated during the computation
 	|
@@ -213,6 +219,22 @@ See the **W4M00001a_sacurine-subset-statistics**, **W4M00001b_sacurine-subset-co
 ----
 NEWS
 ----
+
+CHANGES IN VERSION 2.2.0
+========================
+
+MAJOR MODIFICATION
+
+ANOVA and Kruskal-Wallis: The p-values of the post-hoc tests (i.e. from pairwise comparisons) are now further corrected for multiple testing over all variables (previously, only the p-value of the -first- omnibus test was corrected over all variables)
+
+MINOR MODIFICATION
+
+All values in the 'dif', adjusted p-value, and 'sig' columns are now displayed (previously, the values were set to NA when the p-value of the omnibus test was not significant)
+
+NEW FEATURE
+
+Graphic: a single pdf file containing the graphics of all significant tests is now produced as '_figure.pdf' output: boxplots (respectively scatterplots with the regression line in red and the R2 value) are displayed when the factor of interest is qualitative (respectively quantitative). The corrected p-value is indicated in the title of each plot
+
 
 CHANGES IN VERSION 2.1.4
 ========================

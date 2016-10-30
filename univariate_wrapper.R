@@ -119,7 +119,8 @@ varDF <- univariateF(datMN = datMN,
                      facC = argVc["facC"],
                      tesC = tesC,
                      adjC = argVc["adjC"],
-                     thrN = as.numeric(argVc["thrN"]))
+                     thrN = as.numeric(argVc["thrN"]),
+                     pdfC = argVc["figure"])
 
 
 ##------------------------------

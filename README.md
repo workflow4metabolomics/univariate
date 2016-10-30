@@ -7,8 +7,8 @@ Status: [![Build Status](https://travis-ci.org/workflow4metabolomics/univariate.
 
 ### Description
 
-**Version:** 2.1.4   
-**Date:** 2016-08-05  
+**Version:** 2.2.0   
+**Date:** 2016-10-30  
 **Author:** Marie Tremblay-Franco (INRA, MetaToul, MetaboHUB, W4M Core Development Team) and Etienne A. Thevenot (CEA, LIST, MetaboHUB, W4M Core Development Team)    
 **Email:** [marie.tremblay-franco(at)toulouse.inra.fr](mailto:marie.tremblay-franco@toulouse.inra.fr); [etienne.thevenot(at)cea.fr](mailto:etienne.thevenot@cea.fr)  
 **Citation:** Thevenot E.A., Roux A., Xu Y., Ezan E. and Junot C. (2015). Analysis of the human adult urinary metabolome variations with age, body mass index and gender by implementing a comprehensive workflow for univariate and OPLS statistical analyses. *Journal of Proteome Research*, **14**:3322-3335. [doi:10.1021/acs.jproteome.5b00354](http://dx.doi.org/10.1021/acs.jproteome.5b00354)  
@@ -50,11 +50,25 @@ See the **W4M00001a_sacurine-subset-statistics**, **W4M00001b_sacurine-subset-co
 
 ### News
 
+###### CHANGES IN VERSION 2.2.0  
+
+MAJOR MODIFICATION  
+
+ * ANOVA and Kruskal-Wallis: The p-values of the post-hoc tests (i.e. from pairwise comparisons) are now further corrected for multiple testing over all variables (previously, only the p-value of the -first- omnibus test was corrected over all variables)  
+
+MINOR MODIFICATION  
+
+ * All values in the 'dif', adjusted p-value, and 'sig' columns are now displayed (previously, the values were set to NA when the p-value of the omnibus test was not significant)  
+
+NEW FEATURE  
+
+ * Graphic: a single pdf file containing the graphics of all significant tests is now produced as '_figure.pdf' output: boxplots (respectively scatterplots with the regression line in red and the R2 value) are displayed when the factor of interest is qualitative (respectively quantitative). The corrected p-value is indicated in the title of each plot  
+
 ###### CHANGES IN VERSION 2.1.4
 
 NEW FEATURE  
 
-Level names are now separated by '.' instead of '-' previously in the column names of the output variableMetadata table (e.g., 'jour_ttest_J3.J10_fdr' instead of 'jour_ttest_J3-J10_fdr' previously)  
+ * Level names are now separated by '.' instead of '-' previously in the column names of the output variableMetadata table (e.g., 'jour_ttest_J3.J10_fdr' instead of 'jour_ttest_J3-J10_fdr' previously)  
 
 INTERNAL MODIFICATION  
 

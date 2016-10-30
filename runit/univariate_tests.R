@@ -9,7 +9,7 @@ test_input_kruskal <- function() {
     argLs <- c(defaultArgF(testDirC), argLs)
     outLs <- wrapperCallF(argLs)
 
-    checkEqualsNumeric(outLs[["varDF"]]["HMDB01032", "ageGroup_kruskal_senior.experienced_pva"], 0.1231246, tolerance = 1e-6)
+    checkEqualsNumeric(outLs[["varDF"]]["HMDB01032", "ageGroup_kruskal_senior.experienced_fdr"], 0.3693738, tolerance = 1e-6)
 
 }
 
