@@ -2,7 +2,7 @@
   <description>Univariate statistics</description>
   
   <requirements>
-    <requirement type="package">R</requirement>
+    <requirement type="package" version="3.3.1">R</requirement>
     <requirement type="package">r-batch</requirement>
     <requirement type="package">r-PMCMR</requirement>
   </requirements>
@@ -225,7 +225,7 @@ CHANGES IN VERSION 2.2.0
 
 MAJOR MODIFICATION
 
-ANOVA and Kruskal-Wallis: The p-values of the post-hoc tests (i.e. from pairwise comparisons) are now further corrected for multiple testing over all variables (previously, only the p-value of the -first- omnibus test was corrected over all variables)
+ANOVA and Kruskal-Wallis: The p-values of the post-hoc tests (i.e. from pairwise comparisons) are now further corrected for multiple testing over all variables (previously, only the p-value of the omnibus test was corrected over all variables)
 
 MINOR MODIFICATION
 
