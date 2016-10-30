@@ -73,34 +73,34 @@
   </tests>
   
   <help>
-
-
-
-</help>
-
-<citations>
-  <citation type="bibtex">@Manual{,
-  title = {R: A Language and Environment for Statistical Computing},
-  author = {{R Core Team}},
-  organization = {R Foundation for Statistical Computing},
-  address = {Vienna, Austria},
-  year = {2016},
-  url = {https://www.R-project.org/},
-  }</citation>
-  <citation type="bibtex">@Article{Thevenot2015,
-   Title                    = {Analysis of the human adult urinary metabolome variations with age, body mass index and gender by implementing a comprehensive workflow for univariate and OPLS statistical analyses},
-   Author                   = {Thevenot, Etienne A. and Roux, Aurelie and Xu, Ying and Ezan, Eric and Junot, Christophe},
-   Journal                  = {Journal of Proteome Research},
-   Year                     = {2015},
-   Note                     = {PMID: 26088811},
-   Number                   = {8},
-   Pages                    = {3322-3335},
-   Volume                   = {14},
-   
-   Doi                      = {10.1021/acs.jproteome.5b00354},
-   Url                      = {http://pubs.acs.org/doi/full/10.1021/acs.jproteome.5b00354}
-   }</citation>
-   <citation type="doi">10.1093/bioinformatics/btu813</citation>
- </citations>
-
+    
+    essai
+    
+  </help>
+  
+  <citations>
+    <citation type="bibtex">@Manual{,
+    title = {R: A Language and Environment for Statistical Computing},
+    author = {{R Core Team}},
+    organization = {R Foundation for Statistical Computing},
+    address = {Vienna, Austria},
+    year = {2016},
+    url = {https://www.R-project.org/},
+    }</citation>
+    <citation type="bibtex">@Article{Thevenot2015,
+    Title                    = {Analysis of the human adult urinary metabolome variations with age, body mass index and gender by implementing a comprehensive workflow for univariate and OPLS statistical analyses},
+    Author                   = {Thevenot, Etienne A. and Roux, Aurelie and Xu, Ying and Ezan, Eric and Junot, Christophe},
+    Journal                  = {Journal of Proteome Research},
+    Year                     = {2015},
+    Note                     = {PMID: 26088811},
+    Number                   = {8},
+    Pages                    = {3322-3335},
+    Volume                   = {14},
+    
+    Doi                      = {10.1021/acs.jproteome.5b00354},
+    Url                      = {http://pubs.acs.org/doi/full/10.1021/acs.jproteome.5b00354}
+    }</citation>
+    <citation type="doi">10.1093/bioinformatics/btu813</citation>
+  </citations>
+  
 </tool>
