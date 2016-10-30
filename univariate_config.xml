@@ -1,8 +1,8 @@
-<tool id="Univariate" name="Univariate" version="2.2.0">
+<tool id="Univariate" name="Univariate" version="2.1.4">
   <description>Univariate statistics</description>
-
+  
   <requirements>
-    <requirement type="package" version="3.3.1">R</requirement>
+    <requirement type="package" version="3.2.2">R</requirement>
     <requirement type="package">r-batch</requirement>
     <requirement type="package">r-PMCMR</requirement>
   </requirements>
@@ -10,7 +10,7 @@
   <stdio>
     <exit_code range="1:" level="fatal" />
   </stdio>
-
+  
   <command><![CDATA[
   Rscript $__tool_directory__/univariate_wrapper.R
 
@@ -27,7 +27,6 @@
   figure "$figure"
   information "$information"
   ]]></command>
-
   <inputs>
     <param name="dataMatrix_in" label="Data matrix file" type="data" format="tabular" help="variable x sample, decimal: '.', missing: NA, mode: numerical, sep: tabular" />
     <param name="sampleMetadata_in" label="Sample metadata file" type="data" format="tabular" help="sample x metadata, decimal: '.', missing: NA, mode: character and numerical, sep: tabular" />
@@ -53,13 +52,13 @@
     </param>
     <param name="thrN" type="float" value="0.05" label="(Corrected) p-value significance threshold" help="Must be between 0 and 1"/>
   </inputs>
-
+  
   <outputs>
-    <data name="variableMetadata_out" label="${tool.name}_${variableMetadata_in.name}" format="tabular"></data>
+    <data name="variableMetadata_out" label="${tool.name}_${variableMetadata_in.name}" format="tabular" ></data>
     <data name="figure" label="${tool.name}_figure.pdf" format="pdf"/>
     <data name="information" label="${tool.name}_information.txt" format="txt"/>
   </outputs>
-
+  
   <tests>
     <test>
       <param name="dataMatrix_in" value="dataMatrix.tsv"/>
@@ -72,7 +71,7 @@
       <output name="variableMetadata_out" file="output-variableMetadata.tsv"/>
     </test>
   </tests>
-
+  
   <help>
 
 .. class:: infomark
@@ -191,16 +190,12 @@ Output files
 	
 variableMetadata_out.tabular
 	| **variableMetadata** file identical to the file given as argument, except that (at least) three columns have been added:
-	| 1) [factor]_[test]_[class'a'].[class'b']_dif or [factor]_[test]_cor: difference of the means (ttest) or the medians (wilcoxon) between the two classes, or 'pearson' or 'spearman' correlations
-	| 2) [factor]_[test]_[class'a'].[class'b']_[method] or [factor]_[test]_[method]: adjusted p-values
-	| 3) [factor]_[test]_[class'a'].[class'b']_sig or [factor]_[test]_sig: significance (coded as '1' if below the threshold and '0' otherwise)
-	| In the case of 'anova' and 'kruskal', the columns 2) and 3) appear first to give the results from the ANOVA or Kruskal Wallis test, and then the results of the pairwise comparisons are reported in additional columns (otherwise NA in these columns): in the case of ANOVA, the Tukey HSD post-hoc analysis is used (for each comparison, the difference between means, p value, and significance are provided); in the case of Kruskal Wallis, the Nemenyi is performed (PMCMR package) (for each pairwise comparison, the difference between medians, p value and significance are provided); note that since version 2.2.0, the p-values of the post-hoc pairwise comparisons (ANOVA or Kruskal) are further corrected for multiple testing over all variables (as the p-value of the omnibus test in column 2)
+	| 1) [factor]_[test]_[class'a']-[class'b']_dif or [factor]_[test]_cor: difference of the means (ttest) or the medians (wilcoxon) between the two classes, or 'pearson' or 'spearman' correlations
+	| 2) [factor]_[test]_[class'a']-[class'b']_[method] or [factor]_[test]_[method]: adjusted p-values
+	| 3) [factor]_[test]_[class'a']-[class'b']_sig or [factor]_[test]_sig: significance (coded as '1' if below the threshold and '0' otherwise)
+	| In the case of 'anova' and 'kruskal', the columns 2) and 3) appear first to give the results from the ANOVA or Kruskal Wallis test, and, when these tests are significant, the results of the pairwise comparisons are reported in additional columns (otherwise NA in these columns): in the case of ANOVA, the Tukey HSD post-hoc analysis is used (for each comparison, the difference between means, p value, and significance are provided); in the case of Kruskal Wallis, the Nemenyi is performed (PMCMR package) (for each pairwise comparison, the difference between medians, p value and significance are provided)
 	|
 	
-figure.pdf
-	| File containing the graphics of all significant tests: boxplots (respectively scatterplots with the regression line in red and the R2 value) are displayed when the factor of interest is qualitative (respectively quantitative). The variable name and the corrected p-value is indicated in the title of each plot
-	|
-
 information.txt
 	| File with all messages and warnings generated during the computation
 	|
@@ -220,22 +215,6 @@ See the **W4M00001a_sacurine-subset-statistics**, **W4M00001b_sacurine-subset-co
 ----
 NEWS
 ----
-
-CHANGES IN VERSION 2.2.0
-========================
-
-MAJOR MODIFICATION
-
-ANOVA and Kruskal-Wallis: The p-values of the post-hoc tests (i.e. from pairwise comparisons) are now further corrected for multiple testing over all variables (previously, only the p-value of the omnibus test was corrected over all variables)
-
-MINOR MODIFICATION
-
-All values in the 'dif', adjusted p-value, and 'sig' columns are now displayed (previously, the values were set to NA when the p-value of the omnibus test was not significant)
-
-NEW FEATURE
-
-Graphic: a single pdf file containing the graphics of all significant tests is now produced as '_figure.pdf' output: boxplots (respectively scatterplots with the regression line in red and the R2 value) are displayed when the factor of interest is qualitative (respectively quantitative). The corrected p-value is indicated in the title of each plot
-
 
 CHANGES IN VERSION 2.1.4
 ========================
@@ -270,32 +249,32 @@ NEW FEATURE
 (corrected) p-value threshold can be set to any value between 0 and 1
 
 
-  </help>
+</help>
 
-  <citations>
-    <citation type="bibtex">@Manual{,
-    title = {R: A Language and Environment for Statistical Computing},
-    author = {{R Core Team}},
-    organization = {R Foundation for Statistical Computing},
-    address = {Vienna, Austria},
-    year = {2016},
-    url = {https://www.R-project.org/},
-    }</citation>
-    <citation type="bibtex">@Article{Thevenot2015,
-    Title                    = {Analysis of the human adult urinary metabolome variations with age, body mass index and gender by implementing a comprehensive workflow for univariate and OPLS statistical analyses},
-    Author                   = {Thevenot, Etienne A. and Roux, Aurelie and Xu, Ying and Ezan, Eric and Junot, Christophe},
-    Journal                  = {Journal of Proteome Research},
-    Year                     = {2015},
-    Note                     = {PMID: 26088811},
-    Number                   = {8},
-    Pages                    = {3322-3335},
-    Volume                   = {14},
-    
-    Doi                      = {10.1021/acs.jproteome.5b00354},
-    Url                      = {http://pubs.acs.org/doi/full/10.1021/acs.jproteome.5b00354}
-    }</citation>
-    <citation type="doi">10.1093/bioinformatics/btu813</citation>
-  </citations>
+<citations>
+  <citation type="bibtex">@Manual{,
+  title = {R: A Language and Environment for Statistical Computing},
+  author = {{R Core Team}},
+  organization = {R Foundation for Statistical Computing},
+  address = {Vienna, Austria},
+  year = {2016},
+  url = {https://www.R-project.org/},
+  }</citation>
+  <citation type="bibtex">@Article{Thevenot2015,
+   Title                    = {Analysis of the human adult urinary metabolome variations with age, body mass index and gender by implementing a comprehensive workflow for univariate and OPLS statistical analyses},
+   Author                   = {Thevenot, Etienne A. and Roux, Aurelie and Xu, Ying and Ezan, Eric and Junot, Christophe},
+   Journal                  = {Journal of Proteome Research},
+   Year                     = {2015},
+   Note                     = {PMID: 26088811},
+   Number                   = {8},
+   Pages                    = {3322-3335},
+   Volume                   = {14},
+   
+   Doi                      = {10.1021/acs.jproteome.5b00354},
+   Url                      = {http://pubs.acs.org/doi/full/10.1021/acs.jproteome.5b00354}
+   }</citation>
+   <citation type="doi">10.1093/bioinformatics/btu813</citation>
+ </citations>
 
 
 
