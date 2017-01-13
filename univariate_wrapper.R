@@ -17,6 +17,9 @@ if (length(grep('-h', argv)) >0) {
 	    "tesC kruskal",
 	    "adjC fdr",
 	    "thrN 0.05",
+	    "variableMetadata_out myVariableMetadata_out.tsv",
+	    "figure figure.pdf",
+	    "information information.txt",
 		"\n")
 	quit(status = 0)
 }
