@@ -2,6 +2,25 @@
 
 library(batch) ## parseCommandArgs
 
+# Constants
+argv <- commandArgs(trailingOnly = FALSE)
+script.path <- sub("--file=","",argv[grep("--file=",argv)])
+prog.name <- basename(script.path)
+
+# Print help
+if (length(grep('-h', argv)) >0) {
+	cat("Usage:", prog.name,
+	    "dataMatrix_in myDataMatrix.tsv",
+	    "sampleMetadata_in mySampleData.tsv",
+	    "variableMetadata_in myVariableMetadata.tsv",
+	    "facC qual",
+	    "tesC kruskal",
+	    "adjC fdr",
+	    "thrN 0.05",
+		"\n")
+	quit(status = 0)
+}
+
 source_local <- function(fname){
     argv <- commandArgs(trailingOnly = FALSE)
     base_dir <- dirname(substring(argv[grep("--file=", argv)], 8))
