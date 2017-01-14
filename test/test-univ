@@ -1,0 +1,4 @@
+#!/bin/bash
+# --> or use R so it can be run under Windows.
+
+../univariate_wrapper.R dataMatrix_in test-data/dataMatrix.tsv sampleMetadata_in test-data/sampleMetadata.tsv variableMetadata_in test-data/variableMetadata.tsv facC qual tesC kruskal adjC fdr thrN 0.05 variableMetadata_out fileout.tsv
