@@ -1,4 +1,4 @@
-<tool id="Univariate" name="Univariate" version="2.2.2">
+<tool id="Univariate" name="Univariate" version="2.2.3">
   <description>Univariate statistics</description>
   
   <requirements>
