@@ -4,13 +4,25 @@
 ################################################################
 
 PROG_PATH=$(dirname $0)
+RES_PATH=$PROG_PATH/res
 
 # MAIN {{{1
 ################################################################
 
+# First test
 $PROG_PATH/../univariate_wrapper.R dataMatrix_in $PROG_PATH/../test-data/dataMatrix.tsv sampleMetadata_in $PROG_PATH/../test-data/sampleMetadata.tsv variableMetadata_in $PROG_PATH/../test-data/variableMetadata.tsv facC qual tesC kruskal adjC fdr thrN 0.05 variableMetadata_out $PROG_PATH/outputVariableMetadata.tsv
 
 if ! diff "$PROG_PATH/outputVariableMetadata.tsv" "$PROG_PATH/../test-data/output-variableMetadata.tsv" ; then
+	echo "Incorrect output variable metadata." >&2
+	exit 1
+fi
+
+# Test on sacurine data
+data_path=$RES_PATH/mtbls404-sacurine
+var_out=$PROG_PATH/mtbls404-outputVariableMetadata.tsv
+$PROG_PATH/../univariate_wrapper.R dataMatrix_in $data_path/w4m-sample-variable-matrix.tsv sampleMetadata_in $data_path/w4m-sample-metadata.tsv variableMetadata_in $data_path/w4m-variable-metadata.tsv facC Characteristics.gender. tesC anova adjC fdr thrN 0.05 variableMetadata_out $var_out
+
+if ! diff "$data_path/outputVariableMetadata.tsv" "$var_out" ; then
 	echo "Incorrect output variable metadata." >&2
 	exit 1
 fi
