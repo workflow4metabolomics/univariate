@@ -13,7 +13,13 @@
 	~ TEST ~
 	~~~~~-->
 
-	<target name="test" depends="plain.test,planemo.lint,planemo.test"/>
+	<target name="test" depends="plain.test,planemo"/>
+
+    <!--~~~~~~~
+	~ PLANEMO ~
+	~~~~~~~~-->
+
+	<target name="planemo" depends="planemo.lint,planemo.test"/>
 
 	<!--~~~~~~~~~~
 	~ PLAIN TEST ~
