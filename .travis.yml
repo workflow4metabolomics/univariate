@@ -6,12 +6,12 @@ notifications:
 before_install:
  - sudo apt-get install -y python-virtualenv
  - sudo apt-get install -y ant
- - sudo apt-get install -y r-base
- - sudo R -e "install.packages(c('batch'), dependencies = TRUE, repos='https://cloud.r-project.org/')" 
  - virtualenv planemo-venv
  - . planemo-venv/bin/activate
  - pip install --upgrade pip setuptools
  - pip install planemo
+ - planemo conda_init
+ - planemo conda_install univariate_config.xml
 
 script:
  - ant test
