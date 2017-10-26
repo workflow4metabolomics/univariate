@@ -2,6 +2,7 @@
   <description>Univariate statistics</description>
   
   <requirements>
+    <requirement type="package">readline</requirement>
     <requirement type="package">r-batch</requirement>
     <requirement type="package">r-PMCMR</requirement>
   </requirements>
