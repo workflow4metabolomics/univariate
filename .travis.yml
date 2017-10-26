@@ -1,10 +1,17 @@
+notifications:
+ email:
+  recipients:
+    - etienne.thevenot@cea.fr
+
 before_install:
  - sudo apt-get install -y python-virtualenv
  - sudo apt-get install -y ant
+ - sudo apt-get install -y r-base
+ - sudo R -e "install.packages(c('batch'), dependencies = TRUE, repos='http://lib.ugent.be/CRAN/')" 
  - virtualenv planemo-venv
  - . planemo-venv/bin/activate
  - pip install --upgrade pip setuptools
  - pip install planemo
 
 script:
- - ant planemo
+ - ant test
