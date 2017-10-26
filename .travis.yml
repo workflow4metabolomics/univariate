@@ -8,7 +8,7 @@ before_install:
  - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
  - sudo apt-get update
  - sudo apt-get install -y --no-install-recommends r-base
- - sudo R -e "install.packages(c('batch'), dependencies = TRUE, repos = 'https://cloud.r-project.org/')"
+ - sudo R -e "install.packages(c('batch', 'PMCMR'), dependencies = TRUE, repos = 'https://cloud.r-project.org/')"
  - sudo apt-get install -y python-virtualenv
  - sudo apt-get install -y ant
  - virtualenv planemo-venv
