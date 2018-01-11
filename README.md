@@ -7,8 +7,8 @@ Status: [![Build Status](https://travis-ci.org/workflow4metabolomics/univariate.
 
 ### Description
 
-**Version:** 2.2.0   
-**Date:** 2016-10-30  
+**Version:** 2.2.4   
+**Date:** 2018-01-11  
 **Author:** Marie Tremblay-Franco (INRA, MetaToul, MetaboHUB, W4M Core Development Team) and Etienne A. Thevenot (CEA, LIST, MetaboHUB, W4M Core Development Team)    
 **Email:** [marie.tremblay-franco(at)toulouse.inra.fr](mailto:marie.tremblay-franco@toulouse.inra.fr); [etienne.thevenot(at)cea.fr](mailto:etienne.thevenot@cea.fr)  
 **Citation:** Thevenot E.A., Roux A., Xu Y., Ezan E. and Junot C. (2015). Analysis of the human adult urinary metabolome variations with age, body mass index and gender by implementing a comprehensive workflow for univariate and OPLS statistical analyses. *Journal of Proteome Research*, **14**:3322-3335. [doi:10.1021/acs.jproteome.5b00354](http://dx.doi.org/10.1021/acs.jproteome.5b00354)  
@@ -49,6 +49,12 @@ install.packages('RUnit', dependencies = TRUE)
 See the **W4M00001a_sacurine-subset-statistics**, **W4M00001b_sacurine-subset-complete**, **W4M00002_mtbls2**, **W4M00003_diaplasma** shared histories in the **Shared Data/Published Histories** menu (https://galaxy.workflow4metabolomics.org/history/list_published)  
 
 ### News
+
+###### CHANGES IN VERSION 2.2.4  
+
+MINOR MODIFICATION  
+
+ * Internal minor modifications for building and testing  
 
 ###### CHANGES IN VERSION 2.2.0  
 

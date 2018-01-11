@@ -1,4 +1,4 @@
-<tool id="Univariate" name="Univariate" version="2.2.3">
+<tool id="Univariate" name="Univariate" version="2.2.4">
   <description>Univariate statistics</description>
   
   <requirements>
@@ -219,6 +219,14 @@ See the **W4M00001a_sacurine-subset-statistics**, **W4M00001b_sacurine-subset-co
 NEWS
 ----
 
+CHANGES IN VERSION 2.2.4
+========================
+
+MINOR MODIFICATION
+
+Internal minor modifications for building and testing
+
+
 CHANGES IN VERSION 2.2.0
 ========================
 
@@ -233,7 +241,6 @@ All values in the 'dif', adjusted p-value, and 'sig' columns are now displayed (
 NEW FEATURE
 
 Graphic: a single pdf file containing the graphics of all significant tests is now produced as '_figure.pdf' output: boxplots (respectively scatterplots with the regression line in red and the R2 value) are displayed when the factor of interest is qualitative (respectively quantitative). The corrected p-value is indicated in the title of each plot
-
 
 CHANGES IN VERSION 2.1.4
 ========================
@@ -278,19 +285,8 @@ NEW FEATURE
     year = {2016},
     url = {https://www.R-project.org/},
     }</citation>
-    <citation type="bibtex">@Article{Thevenot2015,
-    Title                    = {Analysis of the human adult urinary metabolome variations with age, body mass index and gender by implementing a comprehensive workflow for univariate and OPLS statistical analyses},
-    Author                   = {Thevenot, Etienne A. and Roux, Aurelie and Xu, Ying and Ezan, Eric and Junot, Christophe},
-    Journal                  = {Journal of Proteome Research},
-    Year                     = {2015},
-    Note                     = {PMID: 26088811},
-    Number                   = {8},
-    Pages                    = {3322-3335},
-    Volume                   = {14},
-    
-    Doi                      = {10.1021/acs.jproteome.5b00354},
-    Url                      = {http://pubs.acs.org/doi/full/10.1021/acs.jproteome.5b00354}
-    }</citation>
+    <citation type="doi">10.1021/acs.jproteome.5b00354</citation>
+    <citation type="doi">10.1016/j.biocel.2017.07.002</citation>
     <citation type="doi">10.1093/bioinformatics/btu813</citation>
   </citations>
   
