@@ -7,8 +7,8 @@ Status: [![Build Status](https://travis-ci.org/workflow4metabolomics/univariate.
 
 ### Description
 
-**Version:** 2.2.4   
-**Date:** 2018-01-11  
+**Version:** 2.2.6   
+**Date:** 2018-06-16  
 **Author:** Marie Tremblay-Franco (INRA, MetaToul, MetaboHUB, W4M Core Development Team) and Etienne A. Thevenot (CEA, LIST, MetaboHUB, W4M Core Development Team)    
 **Email:** [marie.tremblay-franco(at)toulouse.inra.fr](mailto:marie.tremblay-franco@toulouse.inra.fr); [etienne.thevenot(at)cea.fr](mailto:etienne.thevenot@cea.fr)  
 **Citation:** Thevenot E.A., Roux A., Xu Y., Ezan E. and Junot C. (2015). Analysis of the human adult urinary metabolome variations with age, body mass index and gender by implementing a comprehensive workflow for univariate and OPLS statistical analyses. *Journal of Proteome Research*, **14**:3322-3335. [doi:10.1021/acs.jproteome.5b00354](http://dx.doi.org/10.1021/acs.jproteome.5b00354)  
@@ -49,6 +49,12 @@ install.packages('RUnit', dependencies = TRUE)
 See the **W4M00001a_sacurine-subset-statistics**, **W4M00001b_sacurine-subset-complete**, **W4M00002_mtbls2**, **W4M00003_diaplasma** shared histories in the **Shared Data/Published Histories** menu (https://galaxy.workflow4metabolomics.org/history/list_published)  
 
 ### News
+
+###### CHANGES IN VERSION 2.2.6  
+
+NEW FEATURE  
+
+ * Tests and correction methods have been renamed according to the controlled vocabulary of the Ontology for Biomedical Investigations (OBI; http://obi-ontology.org/) and the statistics ontology (STATO; http://stato-ontology.org/), in collaboration with Philippe Rocca-Serra (University of Oxford)  
 
 ###### CHANGES IN VERSION 2.2.4  
 

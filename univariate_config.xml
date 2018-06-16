@@ -233,7 +233,7 @@ NEWS
 CHANGES IN VERSION 2.2.6
 ========================
 
-MINOR MODIFICATION
+NEW FEATURE
 
 Tests and correction methods have been renamed according to the controlled vocabulary of the Ontology for Biomedical Investigations (OBI; http://obi-ontology.org/) and the statistics ontology (STATO; http://stato-ontology.org/), in collaboration with Philippe Rocca-Serra (University of Oxford)
 
